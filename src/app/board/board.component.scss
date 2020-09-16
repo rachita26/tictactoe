@@ -1,5 +1,43 @@
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.board-container {
+    top: 40%;
+    left: 43%;
+    position: absolute;
+    box-shadow: 2px 2px 2px grey;
+}
+.resetBtn {
+    text-align: center;
+    bottom: 5%;
+    left: 47%;
+    position: absolute;
+}
+.winnerClass {
+    text-align: center;
+    font-size: xx-large;
+}
+.btn {
+    margin: 10px;
+}
+#winnerMsg {
+    animation-name: winner;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+@keyframes winner {
+    0% {
+        color: red;
+    }
+    25% {
+        color: yellow;
+    }
+    50% {
+        color: blueviolet;
+    }
+    75% {
+        color: hotpink;
+    }
+    100% {
+        color: green;
+    }
+    from { transform: translate3d(0, 0, 0);} 
+    to { transform: translate3d(0, 150px, 0);} 
 }

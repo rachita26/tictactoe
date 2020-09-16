@@ -1,16 +1,21 @@
-<div class="clearfix">
-    <app-cell *ngFor="let cell of cells | slice: 0: 3; let i = index" [value]="cell" (userClick)=clickHandler(i)>
-    </app-cell><br>
+<div class="board-container">
+    <div>
+        <app-cell *ngFor="let cell of cells | slice: 0: 3; let i = index" [value]="cell" (userClick)=clickHandler(i)>
+        </app-cell><br>
+    </div>
+    <div>
+        <app-cell *ngFor="let cell of cells | slice: 3: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+3)>
+        </app-cell><br>
+    </div>
+    <div>
+        <app-cell *ngFor="let cell of cells | slice: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+6)>
+        </app-cell><br>
+    </div>    
 </div>
 
-<div class="clearfix">
-    <app-cell *ngFor="let cell of cells | slice: 3: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+3)>
-    </app-cell><br>
+<div *ngIf="winner" class="font winnerClass" id="winnerMsg">
+    Winner is {{winner}}
 </div>
-<div class="clearfix">
-    <app-cell *ngFor="let cell of cells | slice: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+6)>
-    </app-cell><br>
-</div>
-<div *ngIf="winner">
-    winner is {{winner}}
+<div class="resetBtn">
+    <button type="button" class="btn btn-outline-dark" (click)="init()">RESET</button>
 </div>
